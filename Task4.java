@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Task4 {
 
 	public static void main(String[] args) {
-		int m, n, c, d;
+		int m, n, c, d,k,sum1=0;
 	    Scanner in = new Scanner(System.in);
 
 	    System.out.println("Enter the number of rows and columns of matrix");
@@ -13,6 +13,7 @@ public class Task4 {
 	    int first[][] = new int[m][n];
 	    int second[][] = new int[m][n];
 	    int sum[][] = new int[m][n];
+	    int multiply[][]=new int[m][n];
 
 	    System.out.println("Enter the elements of first matrix");
 
@@ -39,7 +40,25 @@ public class Task4 {
 
 	      System.out.println();
 	    }
-
+	    for (c = 0; c < m; c++) {
+	        for (d = 0; d < n; d++) {
+	          for (k = 0; k < n; k++)
+	            sum1 = sum1 + first[c][k]*second[k][d];
+	 
+	          multiply[c][d] = sum1;
+	          sum1 = 0;
+	        }
+	      }
+	 
+	      System.out.println("Product of the matrices:");
+	 
+	      for (c = 0; c < m; c++) {
+	        for (d = 0; d < n; d++)
+	          System.out.print(multiply[c][d]+"\t");
+	 
+	        System.out.print("\n");
+	      }
 	}
 
 }
+
